@@ -1,3 +1,8 @@
+
+//      _ _ _ ____ ___  _  _ ____ ____ ___  ____ _   _ 
+//      | | | |___ |  \ |\ | |___ [__  |  \ |__|  \_/  
+//      |_|_| |___ |__/ | \| |___ ___] |__/ |  |   |  
+
 class SLNode {
     constructor(value) {
         this.value = value
@@ -8,9 +13,7 @@ class SLNode {
 class SLL {
     constructor() {
         this.head = null;
-    }
-
-    //  TUESDAY -------------------------------------------------------------------//
+    } 
 
     // BRAIN TEASER WARM UP BEFORE FORMAL INTRO TO SLLs//
         // Given:
@@ -38,7 +41,10 @@ class SLL {
     removeAtFront() {
     }
 
-    // WEDNESDAY -------------------------------------------------------------------//
+//    ___ _  _ _  _ ____ ____ ___  ____ _   _        
+//     |  |__| |  | |__/ [__  |  \ |__|  \_/         
+//     |  |  | |__| |  \ ___] |__/ |  |   | 
+
     // Remember to add methods INSIDE the SLL Class.
 
     /**
@@ -87,17 +93,21 @@ class SLL {
         console.log(printString);
     }
 
-    // EXTRA
-    /**
-     * Calculates the average of this list.
-     * - Time: (?).
-     * - Space: (?).
-     * @returns {number|NaN} The average of the node's data.
-     */
-    average() {
-    }
+                // EXTRA
+                /**
+                 * Calculates the average of this list.
+                 * - Time: (?).
+                 * - Space: (?).
+                 * @returns {number|NaN} The average of the node's data.
+                 */
+                // average() {
+                // }
 
-    // THURSDAY --------------------------------------------------------------------//
+    
+//      ____ ____ _ ___  ____ _   _                    
+//      |___ |__/ | |  \ |__|  \_/                     
+//      |    |  \ | |__/ |  |   | 
+
     // Remember to add methods INSIDE the SLL Class.
     /**
      * Determines whether or not the given search value exists in this list.
@@ -116,39 +126,11 @@ class SLL {
      * @returns {any} The data from the node that was removed.
      */
     removeBack() {
-
     }
 
-    // --- If extra time -- code the removeAtFront method from scratch
+    // --- BONUS If extra time -- code the removeAtFront method from scratch
 
     // EXTRA
-    /**
-     * Determines whether or not the given search value exists in this list.
-     * - Time: (?).
-     * - Space: (?).
-     * @param {any} val The data to search for in the nodes of this list.
-     * @param {?node} current The current node during the traversal of this list
-     *    or null when the end of the list has been reached.
-     * @returns {boolean}
-     */
-    containsRecursive(val, current = this.head) {
-    }
-
-
-    /**
-     * Recursively finds the maximum integer data of the nodes in this list.
-     * - Time: (?).
-     * - Space: (?).
-     * @param {Node} runner The start or current node during traversal, or null
-     *    when the end of the list is reached.
-     * @param {Node} maxNode Keeps track of the node that contains the current
-     *    max integer as it's data.
-     * @returns {?number} The max int or null if none.
-     */
-    recursiveMax(runner = this.head, maxNode = this.head) {
-    }
-
-    // FRIDAY ----------------------------------------------------------------------//
     // Remember to add methods INSIDE the SLL Class.
     
     /**
@@ -173,7 +155,7 @@ class SLL {
 
     }
 
-    //  FRIDAY EXTRA
+    //  EXTRA -- Move to week 4?
     /**
      * Retrieves the data of the kth to last node in this list.
      * - Time: (?).
