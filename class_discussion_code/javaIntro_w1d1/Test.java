@@ -11,8 +11,8 @@ public class Test {
         int sum = testObject.addNums(4, 5);
         System.out.println(sum);
 
-        // System.out.println("Hello world!");
-        // System.out.println("Another line");
+        System.out.println("Hello world!");
+        System.out.println("Another line");
 
         int wholeNumber = 5;
         String greeting = "Hey what's up??";
@@ -26,7 +26,7 @@ public class Test {
 
         // countries = 67;
 
-        // System.out.printf("My variables: numArray %s, countries %s, counts %s", numArray, countries, counts);
+        System.out.printf("My variables: numArray %s, countries %s, counts %s", numArray, countries, counts);
     }
 
     
