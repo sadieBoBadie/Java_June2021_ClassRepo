@@ -6,6 +6,12 @@
 //   \__,_|_|\__, |\___/|_|  |_|\__|_| |_|_| |_| |_|___/
 //            __/ |                                     
 //           |___/                                         
+class SLNode{
+    constructor(thing){
+        this.value = thing
+        this.next = null
+    }
+}
 
 // Part I  - Intro to Singly Linked Lists Nodes
 
@@ -37,10 +43,3 @@ console.log(head.val);
 console.log(head.next.val);
 console.log(head.next.next.next.val);
 
-
-class SLNode{
-    constructor(value){
-        this.value = value
-        this.next = null
-    }
-}
