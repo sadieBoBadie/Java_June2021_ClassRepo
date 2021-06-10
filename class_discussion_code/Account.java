@@ -15,21 +15,21 @@ public class Account {
 }
 
 // 1.) What else do I need other than what you see here to run this code?
-        -- compile
-        -- main --> Another file ExampleTest.java
-        -- public static void main(String[] args)
+        // -- compile
+        // -- main --> Another file ExampleTest.java
+        // -- public static void main(String[] args)
 
 // 2.) What is the name of the class?
-    -- Account
+    // -- Account
 // 3.) What might I need to fix here, inorder for this file to compile??
     // HINT -- 2 things, having to do with the class itself.
-    -- Filename must match class name. class keyword omitted
+    // -- Filename must match class name. class keyword omitted
 
 // 4.) What is the name of the method inside this class?
-    -- saltPassword
+    // -- saltPassword
 // 5.) How many arguments does the method take?
-    -- 1!
+    // -- 1!
 // 6.) What are the parameter names for the method?
-    -- password
+    // -- password
 // 7.) What is the return type of the method?
-    -- String
+    // -- String

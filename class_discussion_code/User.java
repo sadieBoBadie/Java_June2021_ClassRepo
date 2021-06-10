@@ -16,7 +16,7 @@ public class User {
     // Action methods
 
 
-    // Getters and Setters
+    // Getters and Setters...
     public String getFirstName() {
         return firstName;
     }

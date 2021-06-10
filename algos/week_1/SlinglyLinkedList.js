@@ -15,12 +15,6 @@ class SLL {
         this.head = null;
     } 
 
-    // BRAIN TEASER WARM UP BEFORE FORMAL INTRO TO SLLs//
-        // Given:
-        // - Diagram of the doc and the cleat and the inner tube guide..
-        // - Come up with the set of instructions to put another person
-        //   in the water at without losing the rest of the chain of inner-tubes
-
     /**
      * Creates a new node with the given data and inserts that node at the front
      * of this list.
@@ -30,7 +24,14 @@ class SLL {
      * @returns {SinglyLinkedList} This list.
      */
     insertAtFront(data) {
+        let newNode = new SLNode(data);
+        newNode.next = this.head;
+        this.head = newNode;
     }
+
+    //    ___ _  _ _  _ ____ ____ ___  ____ _   _        
+    //     |  |__| |  | |__/ [__  |  \ |__|  \_/         
+    //     |  |  | |__| |  \ ___] |__/ |  |   | 
 
     /**
      * Removes the first node of this list.
@@ -41,9 +42,6 @@ class SLL {
     removeAtFront() {
     }
 
-//    ___ _  _ _  _ ____ ____ ___  ____ _   _        
-//     |  |__| |  | |__/ [__  |  \ |__|  \_/         
-//     |  |  | |__| |  \ ___] |__/ |  |   | 
 
     // Remember to add methods INSIDE the SLL Class.
 

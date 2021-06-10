@@ -3,5 +3,6 @@ public class UserTest {
         User someUser = new User();
 
         System.out.println(someUser.getFirstName());
+        someUser.firstName = "Sally";
     }
 }
