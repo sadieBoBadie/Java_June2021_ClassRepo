@@ -13,7 +13,7 @@ class SLNode {
 class SLL {
     constructor() {
         this.head = null;
-    } 
+    }
 
     /**
      * Creates a new node with the given data and inserts that node at the front
@@ -28,32 +28,43 @@ class SLL {
         newNode.next = this.head;
         this.head = newNode;
     }
-
     //    ___ _  _ _  _ ____ ____ ___  ____ _   _        
     //     |  |__| |  | |__/ [__  |  \ |__|  \_/         
     //     |  |  | |__| |  \ ___] |__/ |  |   | 
 
+    // Remember to add methods INSIDE the SLL Class.
     /**
      * Removes the first node of this list.
      * - Time: (?).
      * - Space: (?).
      * @returns {any} The data from the removed node.
      */
+
     removeAtFront() {
+        // If the list is empty just return null
+        // since there is nothing to remove
+        if (this.head == null) {
+            return null;
+        }
+        // Save the value of the node you
+        // are about to remove, so you can
+        // return use it in the global scope 
+        // if you need to
+        let removed = this.head.value;
+
+        // Re-assign the head to the next node in the list.
+        this.head = this.head.next;
+
+        // Return the removed value.
+        return removed;
     }
 
-
-    // Remember to add methods INSIDE the SLL Class.
-
-    /**
-     * Adds each item of the given array to the back of this list.
-     * - Time: (?).
-     * - Space: (?).
-     * @param {Array<any>} vals The data for each new node.
-     * @returns {SinglyLinkedList} This list.
-     */
-    seedFromArr(vals) {
-        // your code here
+    // Using a ternary statement (you will see this syntax in the industry)
+    // helps to make code shorter, but is less readable
+    removeAtFrontShortVersion() {
+        let removed = this.head;
+        this.head = this.head ? this.head.next : this.head;
+        return removed ? removed.value : null;
     }
 
     /**
@@ -64,10 +75,19 @@ class SLL {
      * @returns {SinglyLinkedList} This list.
      */
     printValues() {
-        // your code here
+        // Just a different way to write it..
+        //   start            keep going current node not null       increment runner
+        for (let runner = this.head; runner != null; runner = runner.next) {
+            console.log(runner.value);
+        }
     }
 
-    /**
+    //      ____ ____ _ ___  ____ _   _                    
+    //      |___ |__/ | |  \ |__|  \_/                     
+    //      |    |  \ | |__/ |  |   | 
+
+    // Remember to add methods INSIDE the SLL Class.
+    /* 
      * Creates a new node with the given data and inserts it at the back of
      * this list.
      * - Time: (?).
@@ -75,38 +95,10 @@ class SLL {
      * @param {any} data The data to be added to the new node.
      * @returns {SinglyLinkedList} This list.
      */
-     insertAtBack(data) {
+    insertAtBack(data) {
         // your code here
     }
-
-
-    printPretty() {
-        let printString = ""
-        let runner = this.head;
-        while (runner != null) {
-            printString += runner.value + "->";
-            runner = runner.next;
-        }
-        printString += "null";
-        console.log(printString);
-    }
-
-                // EXTRA
-                /**
-                 * Calculates the average of this list.
-                 * - Time: (?).
-                 * - Space: (?).
-                 * @returns {number|NaN} The average of the node's data.
-                 */
-                // average() {
-                // }
-
     
-//      ____ ____ _ ___  ____ _   _                    
-//      |___ |__/ | |  \ |__|  \_/                     
-//      |    |  \ | |__/ |  |   | 
-
-    // Remember to add methods INSIDE the SLL Class.
     /**
      * Determines whether or not the given search value exists in this list.
      * - Time: (?).
@@ -126,11 +118,42 @@ class SLL {
     removeBack() {
     }
 
-    // --- BONUS If extra time -- code the removeAtFront method from scratch
+    printPretty() {
+        let printString = ""
+        let runner = this.head;
+        while (runner != null) {
+            printString += runner.value + "->";
+            runner = runner.next;
+        }
+        printString += "null";
+        console.log(printString);
+    }
+
+
+    /* ******* EXTRAS ******* */
+
+    /**
+     * Adds each item of the given array to the back of this list.
+     * - Time: (?).
+     * - Space: (?).
+     * @param {Array<any>} vals The data for each new node.
+     * @returns {SinglyLinkedList} This list.
+     */
+    seedFromArr(vals) {
+        // your code here
+    }
 
     // EXTRA
-    // Remember to add methods INSIDE the SLL Class.
-    
+    /**
+     * Calculates the average of this list.
+     * - Time: (?).
+     * - Space: (?).
+     * @returns {number|NaN} The average of the node's data.
+     */
+    // average() {
+    // }
+
+
     /**
      * Retrieves the data of the second to last node in this list.
      * - Time: (?).
@@ -164,9 +187,11 @@ class SLL {
     kthToLast(k) {
     }
 
+    /*********** BONUS ************* */
+    /* Solve kthToLast in one pass (instead of going through the list 2 times)
+
     // ====================================================
 
-    // EXTRA
     /**
      * Inserts a new node before a node that has the given value as its data.
      * - Time: (?).
@@ -219,13 +244,13 @@ class SLL {
 
 /* insertAtBack & seedFromArray Test */
 let my_list = new SLL();
-my_list.insertAtBack(8);
-my_list.insertAtBack(9);
-my_list.insertAtBack(10);
-my_list.insertAtBack(11);
-my_list.insertAtBack(12);
-my_list.insertAtBack(13);
-// console.log(my_list);
+my_list.insertAtFront(8);
+my_list.insertAtFront(9);
+my_list.insertAtFront(10);
+my_list.insertAtFront(11);
+my_list.insertAtFront(12);
+my_list.insertAtFront(13);
+my_list.printValues();
 
 // let new_list = new SLL();
 // new_list.seedFromArr([3, 4, 5, 6, 7, 8, 9]);
@@ -239,8 +264,8 @@ my_list.insertAtBack(13);
 // console.log(my_list.removeBack()); // 8
 // console.log(my_list.removeBack()); // List empty
 // console.log(my_list.removeVal(10))
-my_list.printPretty();
-console.log("Second from last: ", my_list.secondToLast());
+// my_list.printPretty();
+// console.log("Second from last: ", my_list.secondToLast());
 
 
 // console.log("\n4 removed? ", my_list.removeVal(4));
@@ -252,9 +277,9 @@ console.log("Second from last: ", my_list.secondToLast());
 // console.log("\n13 removed? ", my_list.removeVal(13));
 // my_list.printPretty();
 
-for (var k = -1; k < 7; k++) {
-    console.log(`${k} from last: ${my_list.kthToLast(k)}`);
-}
+// for (var k = -1; k < 7; k++) {
+//     console.log(`${k} from last: ${my_list.kthToLast(k)}`);
+// }
 
 
 
