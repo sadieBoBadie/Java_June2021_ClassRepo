@@ -49,9 +49,6 @@ class SLStack {
   pop() {
   }
 
-  size() {
-  }
-
   peek() {
 
   }
@@ -67,24 +64,26 @@ class SLStack {
     console.log(printString);
   }
 
-  ////  EXTRA  /////
-  // Reverses stack with the order of the nodes reversed
-  // For this exercise, do NOT try to re-point all the pointers
-  // use an extra stack as storage and utilize the pop and push 
-  // methods. Hint: you can re-point the head.
-  reverse() {
-  }
-
+  
   // Week 2 Friday 
-// ____ ____ _ ___  ____ _   _                    
-// |___ |__/ | |  \ |__|  \_/                     
-// |    |  \ | |__/ |  |   | 
-//
+  // ____ ____ _ ___  ____ _   _                    
+  // |___ |__/ | |  \ |__|  \_/                     
+  // |    |  \ | |__/ |  |   | 
+  //
   // (note these days are listed out of order to keep the class code together)
   // Stacks/Queues Continued
+  
+  // Methods will be in the STACK class
+  
+   // Reverses stack with the order of the nodes reversed
+   // For this exercise, do NOT try to re-point all the pointers
+   // use an extra stack as storage and utilize the pop and push 
+   // methods. Hint: you can re-point the head.
+   reverse() {
+   }
 
-  /** Methods will be in the STACK class
-   * Returns a new stack that is copy of the original stack.
+  
+  /** Returns a new stack that is copy of the original stack.
    * Retain the original order. You may create extra temp 
    * SLStacks and/or SLQueues 
    * as storage.
@@ -144,7 +143,7 @@ class SLQueue {
 
   }
 
-  // WED &/or TUES EXTRA
+  // THURS &/or WED EXTRA
     dequeue() {
 
     }

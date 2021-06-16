@@ -22,6 +22,7 @@ class SLL {
         this.head = null;
     }
 
+
     /**
      * Creates a new node with the given data and inserts that node at the front
      * of this list.
@@ -70,3 +71,22 @@ class SLL {
     }
 
 }
+
+let myList = new SLL();
+myList.insertAtFront(5)
+.insertAtFront(4)
+.insertAtFront(3)
+.insertAtFront(2)
+.insertAtFront(1);
+
+myList.printPretty(); // 1 -> 2 -> 3 -> 4 -> 5 -> null
+
+myList.removeVal(2);
+
+myList.printPretty(); // 1 -> 3 -> 4 -> 5 -> null
+
+myList.removeVal(1); // 3 -> 4 -> 5 -> null
+
+myList.reverse();
+
+myList.printPretty(); // 5 -> 4 -> 3 -> null

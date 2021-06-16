@@ -21,7 +21,34 @@ class SLL {
     constructor() {
         this.head = null;
     }
+    insertAt(element, index){
+        if (index < 0 || index > this.size)
+            return console.log("please enter valid number.");
+        else{
+            var node = new Node(time, space);
+            var current, prev;
 
+            current = this.head;
+
+            if (index ==0){
+                node.next = this.head;
+                this.head = node;
+            }
+            else{
+                current = this.head;
+                var i = 0;
+
+                while (i < index){
+                    i++;
+                    prev = current;
+                    current = current.next;
+                }
+                node.next = current;
+                prev.next = node;
+            }
+            this.size++;
+        }
+    }
     /**
      * Creates a new node with the given data and inserts that node at the front
      * of this list.
@@ -35,7 +62,27 @@ class SLL {
         newNode.next = this.head;
         this.head = newNode;
     }
+    remove(element){
+            var current = this.head;
+            var prev = null;
 
+            while (current != null){
+                if(current.element === element){
+                    if(prev == null){
+                        this.head = current.next;
+                    }
+                    else{
+                        prev.next = current.next;
+                    }
+                    this.size--;
+                    return current.element
+                }
+                prev = current;
+                current = current.next;
+            }
+            return -1;
+        }
+    }
     /**
      * Removes the node that has the matching given val as it's data.
      * - Time: (?).
@@ -70,3 +117,22 @@ class SLL {
     }
 
 }
+
+let myList = new SLL();
+myList.insertAtFront(5)
+.insertAtFront(4)
+.insertAtFront(3)
+.insertAtFront(2)
+.insertAtFront(1);
+
+myList.printPretty(); // 1 -> 2 -> 3 -> 4 -> 5 -> null
+
+myList.removeVal(2);
+
+myList.printPretty(); // 1 -> 3 -> 4 -> 5 -> null
+
+myList.removeVal(1); // 3 -> 4 -> 5 -> null
+
+myList.reverse();
+
+myList.printPretty(); // 5 -> 4 -> 3 -> null

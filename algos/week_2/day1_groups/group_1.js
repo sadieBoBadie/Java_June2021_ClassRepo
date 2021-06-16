@@ -1,4 +1,4 @@
-//   Group Members: 
+//   Group Members: Brian Marion, Josiah, George Park, Javen Manning, Joe Park, Brian Haseley
 
 
 //                            _             
@@ -45,7 +45,14 @@ class SLL {
      * @returns {boolean} Indicates if a node was removed or not.
      */
     removeVal(val) {
-
+        if (this.head.value = val) {
+            this.head = newNode.next;
+        } else {
+            // if value = 3 then head is 2
+            // pointing previous (head) and bypass the val to next
+            while(newNode.next != null) {
+            newNode.next = newNode.next.next;
+            }
     }
 
     /**
@@ -70,3 +77,22 @@ class SLL {
     }
 
 }
+
+let myList = new SLL();
+myList.insertAtFront(5)
+.insertAtFront(4)
+.insertAtFront(3)
+.insertAtFront(2)
+.insertAtFront(1);
+
+myList.printPretty(); // 1 -> 2 -> 3 -> 4 -> 5 -> null
+
+myList.removeVal(2);
+
+myList.printPretty(); // 1 -> 3 -> 4 -> 5 -> null
+
+myList.removeVal(1); // 3 -> 4 -> 5 -> null
+
+myList.reverse();
+
+myList.printPretty(); // 5 -> 4 -> 3 -> null

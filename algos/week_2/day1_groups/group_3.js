@@ -1,4 +1,4 @@
-//   Group Members: 
+//   Group Members: Ciara G, Shota M, Jake A, Hussein G, Justin T
 
 
 //                            _             
@@ -21,8 +21,7 @@ class SLL {
     constructor() {
         this.head = null;
     }
-
-    /**
+    /**d
      * Creates a new node with the given data and inserts that node at the front
      * of this list.
      * - Time: (?).
@@ -45,7 +44,17 @@ class SLL {
      * @returns {boolean} Indicates if a node was removed or not.
      */
     removeVal(val) {
+        let previousNode = this.head;
+        let runner = previousNode.next;
 
+        while () {
+            if (runner.value == val) {
+                previousNode.next = runner.next;  
+            } else {
+                runner = runner.next;
+                previousNode = runner;
+            }
+        }
     }
 
     /**
@@ -55,7 +64,7 @@ class SLL {
      * @returns {SinglyLinkedList} This list.
      */
     reverse() {
-
+        
     }
 
     printPretty() {
@@ -70,3 +79,22 @@ class SLL {
     }
 
 }
+
+let myList = new SLL();
+myList.insertAtFront(5)
+.insertAtFront(4)
+.insertAtFront(3)
+.insertAtFront(2)
+.insertAtFront(1);
+
+myList.printPretty(); // 1 -> 2 -> 3 -> 4 -> 5 -> null
+
+myList.removeVal(2);
+
+myList.printPretty(); // 1 -> 3 -> 4 -> 5 -> null
+
+myList.removeVal(1); // 3 -> 4 -> 5 -> null
+
+myList.reverse();
+
+myList.printPretty(); // 5 -> 4 -> 3 -> null
