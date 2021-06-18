@@ -37,20 +37,40 @@ class SLStack {
     this.length = 0;
   }
 
-  isEmpty() {
+  isEmpty(){
+    return this.head == null;
   }
 
   // Adds a new node with the given value in front of the head node.
-  push(value) {
+  push(value){
+    var new_node = new SLNode(value);
+    new_node.next = this.head;
+    this.head = new_node;
+    this.length++;
   }
 
   // Removes the head node
   // return the popped value -- important!
-  pop() {
+  pop(){
+    if (!this.head) {
+      return null;
+    }
+    var removed = this.head.value;
+    this.head = this.head.next;
+    this.length--;
+    return removed;
   }
 
-  peek() {
+  size(){
+    return this.length;
+  }
 
+  peek(){
+    // Note: If this looks weird, look up ternary statements.
+    // They are another way to re-write a very simple 
+    // if statement variable assignment.
+    return this.head? this.head.value: null;
+    // return top value without removing
   }
 
   printPretty() {
@@ -65,10 +85,10 @@ class SLStack {
   }
 
   
-  // Week 2 Friday 
-  // ____ ____ _ ___  ____ _   _                    
-  // |___ |__/ | |  \ |__|  \_/                     
-  // |    |  \ | |__/ |  |   | 
+  // Week 2 THursday
+  // ___ _  _ _  _ ____ ____ ___  ____ _   _        
+  //  |  |__| |  | |__/ [__  |  \ |__|  \_/         
+  //  |  |  | |__| |  \ ___] |__/ |  |   |  
   //
   // (note these days are listed out of order to keep the class code together)
   // Stacks/Queues Continued
@@ -94,7 +114,7 @@ class SLStack {
   copy() {
   }
 
-  /**
+  /** EXTRA **
    * Rearranges the stack so that numbers > 0 are 
    * on the top and any negatives are on the bottom
    * Retain the order of the positives and negatives
@@ -117,11 +137,10 @@ new_stack.push(-7);
 new_stack.push(8);
 new_stack.push(-10);
 // head (-10)->(8)->(-7)->(-5)->(2)->(1)->(-3)->null
-new_stack.copy();
+console.log(new_stack.copy());
 new_stack.printPretty();
-new_stack.partitionPositives();
+new_stack.reverse();
 new_stack.printPretty();
-// head (8)->(2)->(1)->(-10)->(-7)->(-5)->(-3)->null
 
 
 
@@ -187,10 +206,11 @@ class SLQueue {
 
   }
 
-// ___ _  _ _  _ ____ ____ ___  ____ _   _        
-//  |  |__| |  | |__/ [__  |  \ |__|  \_/         
-//  |  |  | |__| |  \ ___] |__/ |  |   |  
-  ////   WED  * Do dequeue first * ////
+  // Week 2 Friday 
+  // ____ ____ _ ___  ____ _   _                    
+  // |___ |__/ | |  \ |__|  \_/                     
+  // |    |  \ | |__/ |  |   | 
+
 
   // findMid
   /*

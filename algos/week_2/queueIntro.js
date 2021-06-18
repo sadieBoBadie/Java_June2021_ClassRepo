@@ -15,7 +15,16 @@ class SLQueue {
     }
 
     enqueue(value) {
-
+        let newNode = new SLNode(value);
+        if (this.head == null) {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+        else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+        return this;
     }
 
     // THURS &/or WED EXTRA
@@ -36,3 +45,16 @@ class SLQueue {
     }
 
 }
+
+let q = new SLQueue();
+q.enqueue(1).enqueue(2).enqueue(3).enqueue(4);
+q.printPretty();
+
+let poppedVal = q.dequeue(); // 1
+console.log(poppedVal); // 1
+q.printPretty(); // 2 - 3 - 4 - null
+
+q.dequeue(); // 3 - 4 - null
+q.dequeue(); // 4 - null
+q.dequeue(); // head null
+q.dequeue(); // Warning: dequeue failed. Queue is empty.

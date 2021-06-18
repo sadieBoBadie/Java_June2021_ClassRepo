@@ -25,6 +25,29 @@ class SLQueue {
         }
 
     }
+
+    dequeue(){
+
+        // let currentNode = this.value;
+
+        if (value == this.head && value == this.tail){
+            this.head = null;
+            this.tail = null;
+            return;
+            
+        }
+
+        if (value == this.tail){
+
+        }
+
+
+
+
+
+    }
+    
+    
     printPretty() {
         let runner = this.head;
         let printString = "~ SLQueue ~ HEAD--(";
