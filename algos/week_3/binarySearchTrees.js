@@ -14,15 +14,37 @@ class BST{
     }
 
 
-    insertIterative(val) {
-    }
+    insert(val) {
 
-    // NINJA BONUS:
-    // Inserts a value into the tree
-    // positioning based on it's value.
-    // RECURSIVE
-    insert(val, runner=this.root) {
+        let newNode = new BSTNode(val);
+
+        if (!this.root) {
+            this.root = new BSTNode(val);
+            return this;
+        }
         
+        let runner = this.root;
+        
+        while (
+            (runner.left != null && val < runner.value) || 
+            (runner.right != null && val >= runner.value)) {
+                
+                // Move runner left or right - ternary statement (shortened if block)
+                // runner = val < runner.value ? runner.left: runner.right;
+
+                if (val < runner.value) {
+                    runner = runner.left;
+                }
+                else {
+                    runner = runner.right;
+                }
+            }
+        if (val < runner.value) {
+            runner.left = newNode
+        }
+        else runner.right = newNode;
+        
+        return this;
     }
 
     /**
@@ -32,6 +54,7 @@ class BST{
      * @returns {boolean} Indicates if this tree is empty.
      */
     isEmpty() {
+        return this.root == null;
     }
 
     ///----------TUESDAY-----------///

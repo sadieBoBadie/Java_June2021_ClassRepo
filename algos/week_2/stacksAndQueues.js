@@ -226,7 +226,13 @@ class SLQueue {
    */
 
   findMid() {
-    
+    let runner = this.head;
+    let fastRunner = this.head;
+
+    while(fastRunner != null) {
+      runner = runner.next;
+      fastRunner = fastRunner.next.next;
+    }
   }
   // NINJA BONUS (after solving) -- can you do it in one pass? 
 
