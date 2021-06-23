@@ -71,17 +71,6 @@ class BST{
     }
 
     /**
-     * Retrieves the smallest integer data from this tree.
-     * - Time: O(?).
-     * - Space: O(?).
-     * @param {Node} current The node that is currently accessed from the tree as
-     *    the tree is being traversed.
-     * @returns {number} The smallest integer from this tree.
-     */
-    minRecursive(current = this.root) {
-    }
-
-    /**
      * Retrieves the largest integer data from this tree.
      * - Time: O(?).
      * - Space: O(?).
@@ -92,6 +81,18 @@ class BST{
     max(current = this.root) {
 
     }
+    
+    /**
+     * Retrieves the smallest integer data from this tree.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {Node} current The node that is currently accessed from the tree as
+     *    the tree is being traversed.
+     * @returns {number} The smallest integer from this tree.
+     */
+    minRecursive(current = this.root) {
+    }
+
 
     /**
      * Retrieves the largest integer data from this tree.
