@@ -12,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -23,8 +21,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name="events")
 public class Event {
-	
-	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -44,47 +40,30 @@ public class Event {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-        name = "rsvps", 
-        joinColumns = @JoinColumn(name = "event_id"), 
-        inverseJoinColumns = @JoinColumn(name = "guest_id")
-    )
-	private List<Guest> guests;
-	
-	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="rsvps",
+			joinColumns=@JoinColumn(name="event_id"),
+			inverseJoinColumns=@JoinColumn(name="guest_id")
+		)
+	private List<Guest> attendees;
 	
 	
 	public Event() {
 		
 	}
-	
-	
+
+
 	public Event(Long id, @NotNull Date eventDate, @NotEmpty String eventName, Date createdAt, Date updatedAt,
-			List<Guest> guests) {
-		super();
+			List<Guest> attendees) {
 		this.id = id;
 		this.eventDate = eventDate;
 		this.eventName = eventName;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
-		this.guests = guests;
+		this.attendees = attendees;
 	}
 
-
-
-	@PrePersist
-	public void onCreate() {
-		this.createdAt = new Date();
-	}
-	
-	@PreUpdate
-	public void onUpdate() {
-		this.updatedAt = new Date();
-	}
-	
-
-	
 
 	public Long getId() {
 		return id;
@@ -133,6 +112,16 @@ public class Event {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+
+	public List<Guest> getAttendees() {
+		return attendees;
+	}
+
+
+	public void setAttendees(List<Guest> attendees) {
+		this.attendees = attendees;
 	}
 	
 	

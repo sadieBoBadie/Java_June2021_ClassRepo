@@ -12,5 +12,6 @@ import com.spring.gettogether.models.Guest;
 @Repository
 public interface GuestRepository extends CrudRepository<Guest, Long> {
 
+	List<Guest> findAllByEventsAttendingIs(Event event);
 	List<Guest> findAll();
 }

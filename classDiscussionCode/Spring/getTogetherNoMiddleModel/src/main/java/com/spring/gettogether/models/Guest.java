@@ -39,24 +39,23 @@ public class Guest {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-        name = "rsvps", 
-        joinColumns = @JoinColumn(name = "guest_id"), 
-        inverseJoinColumns = @JoinColumn(name = "event_id")
-    )
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="rsvps",
+			joinColumns=@JoinColumn(name="guest_id"),
+			inverseJoinColumns=@JoinColumn(name="event_id")
+		)
 	private List<Event> eventsAttending;
-	
 	
 	public Guest() {
 		
 	}
-	
+
 	
 
+	
 	public Guest(Long id, @NotEmpty @Size(min = 2) String name, Date createdAt, Date updatedAt,
 			List<Event> eventsAttending) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.createdAt = createdAt;
@@ -66,25 +65,30 @@ public class Guest {
 
 
 
-	@PrePersist
-	public void onCreate() {
-		this.createdAt = new Date();
-	}
-	
-	@PreUpdate
-	public void onUpdate() {
-		this.updatedAt = new Date();
-	}
-	
-	
 
 	public Long getId() {
 		return id;
 	}
 
 
+
+
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+
+
+
+	public List<Event> getEventsAttending() {
+		return eventsAttending;
+	}
+
+
+
+
+	public void setEventsAttending(List<Event> eventsAttending) {
+		this.eventsAttending = eventsAttending;
 	}
 
 
@@ -114,6 +118,15 @@ public class Guest {
 
 
 
+	@PrePersist
+	public void onCreate() {
+		this.createdAt = new Date();
+	}
+	
+	@PreUpdate
+	public void onUpdate() {
+		this.updatedAt = new Date();
+	}
 
 	public String getName() {
 		return name;

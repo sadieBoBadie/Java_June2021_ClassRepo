@@ -16,14 +16,22 @@ public class GuestService {
 	@Autowired
 	private GuestRepository repo;
 	
+	public List<Guest> getGuestsByEvent(Event event) {
+		return repo.findAllByEventsAttendingIs(event);
+	}
+	
+	public List<Guest> getAllGuests() {
+		return repo.findAll();
+	}
+	
+	public Guest addGuest(Guest guest) {
+		return repo.save(guest);
+	}
 	public Guest getGuestById(Long id) {
-		
 		Optional<Guest> guest = repo.findById(id);
-		
 		if (guest.isPresent()) {
 			return guest.get();
-		}
-		
+		};
 		return null;
 	}
 }

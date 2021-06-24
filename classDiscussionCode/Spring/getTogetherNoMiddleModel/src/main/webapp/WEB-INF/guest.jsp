@@ -23,7 +23,7 @@
 	<div class="container">
 	
 		<h1>Guest Information:</h1>
-		${guest.eventsAttending}
+		
 		<h3>Name: <c:out value="${guest.name}"/></h3>
 		
 		<div class="container" style="background-color: rebecca-purple">
@@ -43,14 +43,15 @@
 		
 		<h3>Add <c:out value="${guest.name}"/> to an event:</h3>
 		
-		<form action="/rsvp" method="post">
-			<input type="hidden" name="guestId" value='<c:out value="${guest.id}"/>'/>
+		<form action="/rsvp" method="post" modelAttribute="rsvpObject">
+			<input type="hidden" name="guest" value='<c:out value="${guest.id}"/>'/>
 			
-				<select name="eventId" id="">
+				<select name="event" id="">
 					<c:forEach items="${events}" var="event">
 							<option value='<c:out value="${event.id}"/>'><c:out value="${event.eventName}"/></option>
 					</c:forEach>
 				</select>
+				
 			<input type="submit" value="Add"/>
 		</form>
 		
