@@ -135,7 +135,24 @@ class BST{
      * @param {number} searchVal The number to search for in the node's data.
      * @returns {boolean} Indicates if the searchVal was found.
      */
-    contains(searchVal) {}
+    contains(searchVal) {
+        let runner = this.root;
+
+        while (runner != null) {
+
+            if (runner.value == searchVal) {
+                return true;
+            } else {
+                if (searchVal < runner.value) {
+                    runner = runner.left;
+                }
+                if (searchVal > runner.value) {
+                    runner = runner.right;
+                }
+            }
+        }
+
+    }
 
     /** Review in class then do the iterative version
      * Determines if this tree contains the given searchVal.
