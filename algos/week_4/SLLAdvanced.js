@@ -28,13 +28,13 @@ class SLL {
     }
 
     /**
-     * Reverses this list in-place without using any extra lists.
+     * Retrieves the data of the kth to last node in this list.
      * - Time: (?).
      * - Space: (?).
-     * @returns {SinglyLinkedList} This list.
+     * @returns {any} The data of the kth to last node or null if there is no
+     *    kth to last node.
      */
-    reverse() {
-
+    kthToLast(k) {
     }
 
     /**
