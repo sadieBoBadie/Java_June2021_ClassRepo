@@ -38,9 +38,10 @@
      * @param {number} num The num to add.
      */
     insert(num) {
-        // num -- 3 // this.heap --> [null, 5]
+        
         this.heap.push(num);
-        //   this.heap ---> [null, 5, 3]
+        
+        // If heap was empty before
         if (this.heap.length <= 2) {
             return
         }
@@ -58,8 +59,8 @@
             currentIndex = parentIdx
             parentIdx = /// ???
         }
-
-    //
+      }
+    // 
     /**
      * Extracts the min num from the heap and then re-orders the heap to
      * maintain order so the next min is ready to be extracted.

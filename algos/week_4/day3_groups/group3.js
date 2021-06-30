@@ -17,20 +17,7 @@
        */
       this.heap = [null];
     }
-
-// [null, 1, 3, 4, 16, 5, 10, 8, 17, 22, 45, 9]
-//                  1
-//          3                4
-//      16       5        10    8
-//   17   22   45  9
-
-//      0    1  2   3   4    5  6   7   8    9
-//    [null, 5, 10, 6, 100, 13, 8, 55, 101, 110, 2
-//
-//       
-
-
-
+  
     /**
      * Retrieves the top (minimum number) in the heap without removing it.
      * - Time: O(1) constant.
@@ -50,25 +37,29 @@
      * @param {number} num The num to add.
      */
     insert(num) {
-            // Push the new value (5) into the heap
-            let temp = this.heap[5];
-            this.heap[5] = this.heap[5/2];
-            this.heap[5/2] = temp
-      
-            //Figure out parent index, check value at parent index
-              //run if >, < new valuee
-            let parentValue = this.temp;
-      
-            //If parentValue is greater than insert into array
-            if(parentValue < temp) {
-              parentValue = this.next;
+      this.heap.push(num);
+        
+        // If heap was empty before
+        if (this.heap.length <= 2) {
+            return
+        }
+
+        let currentIndex = this.heap.length - 1;
+        let parentIdx = Math.floor(currentIndex/2);
+
+        // If the parent is greater than the current
+        // swap
+        // keep checking
+        // otherwise, do nothing!
+
+        while (parentIdx >= 1) {
+            if (this.heap[parentIdx] > this.heap[currentIndex]) {
+                // swap
             }
-      
-            //If parentValue is less than swap the new value with the parent
-            if(parentValue > temp) {
-              let temp2 = 0;
-              for()
-            }
+            // swap
+            currentIndex = parentIdx
+            parentIdx = 
+        }
     }
 
     //
@@ -87,13 +78,43 @@
         
     }
 
+    /** BONUS CHALLENGE **/
+
+    /**
+     * Given an unsorted array, returns a heap instance version of the array.
+     * - Time: ?
+     * - Space: ?
+     * @returns {MinHeap} a heap with the same numbers as the array.
+     */
+    // static allows this method to be executed directly on the class itself 
+    // rather than needing to be executed on an instance or going through the .prototype
+    // converts an array into a new heap
+    static heapify(vals) {
+    }
+
 }
 
+/** BONUS CHALLENGE **/
+// Time: O(n log n) linearithmic because .insert & .extract are O(log n) and both are being done n times
+//     note: 2n*log(n) is considered n*log(n) time complexity as any coefficients and constants are disregarded.
+function heapSort(nums) {
+
+}
 
 let testHeap = new MinHeap()
-for (var val of [5, 3, 10, 17, 9, 4, 8, 16, 22, 45, 1]) {
-    testHeap.insert(val);
-}
+
+testHeap.insert(5);
+testHeap.insert(3);
+testHeap.insert(10);
+testHeap.insert(17);
+testHeap.insert(9);
+testHeap.insert(4);
+testHeap.insert(8);
+testHeap.insert(16);
+testHeap.insert(22);
+testHeap.insert(45);
+testHeap.insert(1);
+
 console.log(testHeap);
 
 // [null, 1, 3, 4, 16, 5, 10, 8, 17, 22, 45, 9]
